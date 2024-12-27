@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه آنتی‌ویروس</title>
+    <link rel="stylesheet" href="style.css"> <!-- لینک به فایل CSS جدید -->
+</head>
+<body>
+    <div class="antivirus-container">
+        <div class="header">
+            <h1>آنتی‌ویروس</h1>
+            <p>سیستم شما در حال بررسی است...</p>
+        </div>
+        <div class="moon"></div> <!-- شکل ماه -->
+        <div class="scan-status">
+            <div class="scan-progress">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <div class="status-text" id="status-text">در حال اسکن...</div>
+        </div>
+        <button class="scan-button" onclick="startScan()">شروع اسکن</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function startScan() {
+            const progressBar = document.getElementById('progress-bar');
+            const statusText = document.getElementById('status-text');
+            const result = document.getElementById('result');
+            let progress = 0;
+
+            statusText.innerText = 'در حال اسکن...';
+            result.innerText = '';
+
+            const interval = setInterval(() => {
+                progress += 10;
+                progressBar.style.width = progress + '%';
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    statusText.innerText = 'اسکن کامل شد!';
+                    result.innerText = 'هیچ تهدیدی پیدا نشد.';
+                }
+            }, 500);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #001f3f; /* رنگ پس‌زمینه شب */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.antivirus-container {
+    background-color: rgba(255, 255, 255, 0.1); /* پس‌زمینه نیمه شفاف */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    text-align: center;
+    width: 400px;
+    position: relative; /* برای قرار دادن ماه */
+}
+
+.header h1 {
+    color: #ffcc00; /* رنگ عنوان */
+}
+
+.moon {
+    width: 100px;
+    height: 100px;
+    background-color: #ffcc00; /* رنگ ماه */
+    border-radius: 50%;
+    position: absolute;
+    top: -50px; /* موقعیت ماه */
+    left: calc(50% - 50px); /* مرکز کردن ماه */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 
+                inset 0 0 10px rgba(255, 255, 255, 0.3); /* سایه و هاله داخلی */
+    overflow: hidden; /* برای ایجاد هلال */
+}
+
+.moon::before {
+    content: '';
+    width: 100px;
+    height: 100px;
+    background-color: #001f3f; /* رنگ پس‌زمینه */
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 20px; /* موقعیت هلال */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* سایه هلال */
+}
+
+.scan-status {
+    margin: 20px 0;
+}
+
+.scan-progress {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    height: 20px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: #4CAF50; /* رنگ نوار پیشرفت */
+    height: 100%;
+    width: 0;
+    transition: width 0.5s;
+}
+
+.status-text {
+    margin-top: 10px;
+    font-size: 18px;
+    color: white; /* رنگ متن وضعیت */
+}
+
+.scan-button {
+    background-color: #ffcc00; /* رنگ دکمه */
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.scan-button:hover {
+    background-color: #e6b800; /* رنگ دکمه در حالت هاور */
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #4CAF50; /* رنگ نتیجه */
+}
